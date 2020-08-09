@@ -5,7 +5,7 @@ import info from '../Input'
 function Home() {
     return (
         <div className="home">
-        <video autoPlay className="bg-video" loop>
+        <video autoPlay muted className="bg-video" loop>
                 <source src={info.background} type="video/mp4" />
                 <source src="movie.ogg" type="video/ogg" />
             </video>

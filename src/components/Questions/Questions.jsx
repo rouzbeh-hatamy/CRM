@@ -67,7 +67,7 @@ const ColorlibConnector = withStyles({
     active: {
         '& $line': {
             backgroundImage:
-                'linear-gradient( to right,rgb(240,138,93) 0%,rgb(184,59,94) 100%)',
+                'linear-gradient( to right,rgb(240,138,93) 0%,rgb(184,59,94) 50%,rgb(240,138,93) 100%)',
                 boxShadow: '0 0px 9px 6px rgba(184, 59, 94, 0.56)',
 
                 
@@ -183,10 +183,13 @@ function getSteps() {
 function Questions() {
     const classes = useStyles();
     const [activeStep, setActiveStep] = React.useState(0);
+    const [results, setResults] = React.useState([]);
     const steps = getSteps();
 
-    const handleNext = () => {
+    const handleNext = (cm) => {
         setActiveStep((prevActiveStep) => prevActiveStep + 1);
+        setResults([...results,cm])
+        console.log(results);
     };
 
 
@@ -196,7 +199,7 @@ function Questions() {
     };
 
     return (
-        <div>
+        <>
             <video autoPlay className="bg-video blur" loop>
                 <source src={info.background} type="video/mp4" />
                 <source src="movie.ogg" type="video/ogg" />
@@ -214,7 +217,8 @@ function Questions() {
 
             {activeStep === steps.length ? (
                 <div className="finished">
-                    <h1> با تشکر از وقتی که صرف پاسخگویی به سوالات کردید</h1>
+                    <h1> با تشکر از زمانی که صرف پاسخگویی به سوالات کردید</h1>
+                    <img src={info.logo} alt="logo" className="finished-logo"/>
                     <Button onClick={handleReset} className={classes.button}>
                         شروع دوباره
             </Button>
@@ -231,33 +235,34 @@ function Questions() {
 
                             <Button
                                 variant="contained"
-                                color="primary"
-                                onClick={handleNext}
-                                className={classes.button}
+                                
+                                onClick={()=>handleNext('خیر')}
+                                className={`btn1 ${classes.button}`}
                             >
-                                بله عالی
+                            خیر 
                             </Button>
                             <Button
                                 variant="contained"
-                                color="primary"
-                                onClick={handleNext}
-                                className={classes.button}
+                                
+                                onClick={()=>handleNext('تا حدودی')}
+                                className={`btn2 ${classes.button}`}
                             >
-                                متوسط
+                                تا حدودی
                             </Button>
                                 <Button
                                     variant="contained"
-                                    color="primary"
-                                    onClick={handleNext}
-                                    className={classes.button}
+                                    
+                                    onClick={()=>handleNext('بله')}
+                                    className={`btn3 ${classes.button}`}
                                 >
-                                    خیر اصلا
+                                بله 
                             </Button>
+                            <img src={info.logo} alt="logo" className="bottom-logo"/>
 
                         </div>
                     </div>
                 )}
-        </div>
+        </>
     )
 }
 

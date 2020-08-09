@@ -15,3 +15,17 @@ body {
     }
   }
 }
+@media screen and(max-width:992px) {
+  * {
+    text-align: center;
+  }
+  #root {
+    position: relative;
+    width: 100vw;
+    overflow: hidden;
+  }
+  .bg-video {
+    width: unset !important;
+    height: 100vh;
+  }
+}
