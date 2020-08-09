@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/CRM/static/css/main.8414d376.chunk.css",
+    "main.js": "/CRM/static/js/main.fbbc6c14.chunk.js",
+    "main.js.map": "/CRM/static/js/main.fbbc6c14.chunk.js.map",
+    "runtime-main.js": "/CRM/static/js/runtime-main.6c408a77.js",
+    "runtime-main.js.map": "/CRM/static/js/runtime-main.6c408a77.js.map",
+    "static/css/2.11829350.chunk.css": "/CRM/static/css/2.11829350.chunk.css",
+    "static/js/2.3956f31e.chunk.js": "/CRM/static/js/2.3956f31e.chunk.js",
+    "static/js/2.3956f31e.chunk.js.map": "/CRM/static/js/2.3956f31e.chunk.js.map",
+    "index.html": "/CRM/index.html",
+    "precache-manifest.7f6105650551e1c2ef116fc5f81b6a75.js": "/CRM/precache-manifest.7f6105650551e1c2ef116fc5f81b6a75.js",
+    "service-worker.js": "/CRM/service-worker.js",
+    "static/css/2.11829350.chunk.css.map": "/CRM/static/css/2.11829350.chunk.css.map",
+    "static/css/main.8414d376.chunk.css.map": "/CRM/static/css/main.8414d376.chunk.css.map",
+    "static/js/2.3956f31e.chunk.js.LICENSE.txt": "/CRM/static/js/2.3956f31e.chunk.js.LICENSE.txt",
+    "static/media/Yekan.ttf": "/CRM/static/media/Yekan.e59513c8.ttf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6c408a77.js",
+    "static/css/2.11829350.chunk.css",
+    "static/js/2.3956f31e.chunk.js",
+    "static/css/main.8414d376.chunk.css",
+    "static/js/main.fbbc6c14.chunk.js"
+  ]
+}
