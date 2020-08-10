@@ -34,6 +34,7 @@ h1 {
 }
 button {
   width: 10rem;
+  min-width: fit-content;
   height: 5rem;
   border-radius: 44px !important;
   background-color: #df5e88 !important;
@@ -42,6 +43,9 @@ button {
 }
 button:focus {
   outline: none;
+}
+a:hover {
+  text-decoration: none;
 }
 .makeStyles-completed-6 {
   transform: rotate(180deg);

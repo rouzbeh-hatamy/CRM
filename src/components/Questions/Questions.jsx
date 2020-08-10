@@ -9,7 +9,9 @@ import StepLabel from '@material-ui/core/StepLabel';
 import Check from '@material-ui/icons/Check';
 import StepConnector from '@material-ui/core/StepConnector';
 import Button from '@material-ui/core/Button';
-import info from '../Input'
+import info from '../Input';
+import { Link } from "react-router-dom";
+
 const useQontoStepIconStyles = makeStyles({
     root: {
         color: '#eaeaf0',
@@ -68,25 +70,25 @@ const ColorlibConnector = withStyles({
         '& $line': {
             backgroundImage:
                 'linear-gradient( to right,rgb(240,138,93) 0%,rgb(184,59,94) 50%,rgb(240,138,93) 100%)',
-                boxShadow: '0 0px 9px 6px rgba(184, 59, 94, 0.56)',
+            boxShadow: '0 0px 9px 6px rgba(184, 59, 94, 0.56)',
 
-                
+
         },
     },
     completed: {
         '& $line': {
             backgroundImage:
                 'linear-gradient( to right,rgb(240,138,93) 0%,rgb(184,59,94) 100%)',
-                boxShadow: '0 0px 9px 6px rgba(184, 59, 94, 0.56)',
+            boxShadow: '0 0px 9px 6px rgba(184, 59, 94, 0.56)',
 
-                
+
         },
     },
     line: {
         height: 10,
         border: 0,
         borderRadius: 50,
-        
+
     },
 })(StepConnector);
 
@@ -188,14 +190,18 @@ function Questions() {
 
     const handleNext = (cm) => {
         setActiveStep((prevActiveStep) => prevActiveStep + 1);
-        setResults([...results,cm])
-        console.log(results);
+        let res = { id: info.Qs[activeStep].id, answer: cm }
+        setResults([...results, res])
     };
 
 
 
     const handleReset = () => {
         setActiveStep(0);
+    };
+
+    const handleResults = () => {
+        console.log(results);
     };
 
     return (
@@ -218,7 +224,10 @@ function Questions() {
             {activeStep === steps.length ? (
                 <div className="finished">
                     <h1> با تشکر از زمانی که صرف پاسخگویی به سوالات کردید</h1>
-                    <img src={info.logo} alt="logo" className="finished-logo"/>
+                    <img src={info.logo} alt="logo" className="finished-logo" />
+                    <Link to="/home"><Button onClick={handleResults} className={classes.button}>
+                        ارسال
+            </Button></Link>
                     <Button onClick={handleReset} className={classes.button}>
                         شروع دوباره
             </Button>
@@ -228,36 +237,30 @@ function Questions() {
                 (
                     <div className="Qs-on">
                         <h1>
-                            {info.Qs[activeStep]}
+                            {info.Qs[activeStep].text}
                         </h1>
 
                         <div>
 
                             <Button
                                 variant="contained"
-                                
-                                onClick={()=>handleNext('خیر')}
+
+                                onClick={() => handleNext(info.Qs[activeStep].options[0].key)}
                                 className={`btn1 ${classes.button}`}
-                            >
-                            خیر 
-                            </Button>
+                            >{info.Qs[activeStep].options[0].text}</Button>
                             <Button
                                 variant="contained"
-                                
-                                onClick={()=>handleNext('تا حدودی')}
+
+                                onClick={() => handleNext(info.Qs[activeStep].options[1].key)}
                                 className={`btn2 ${classes.button}`}
-                            >
-                                تا حدودی
-                            </Button>
-                                <Button
-                                    variant="contained"
-                                    
-                                    onClick={()=>handleNext('بله')}
-                                    className={`btn3 ${classes.button}`}
-                                >
-                                بله 
-                            </Button>
-                            <img src={info.logo} alt="logo" className="bottom-logo"/>
+                            >{info.Qs[activeStep].options[1].text}</Button>
+                            <Button
+                                variant="contained"
+
+                                onClick={() => handleNext(info.Qs[activeStep].options[2].key)}
+                                className={`btn3 ${classes.button}`}
+                            >{info.Qs[activeStep].options[2].text}</Button>
+                            <img src={info.logo} alt="logo" className="bottom-logo" />
 
                         </div>
                     </div>

@@ -1,4 +1,8 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## customer relationship management
+
+# to see the project on github pages click on the link below
+
+☞[CRM](https://rouzbeh-hatamy.github.io/CRM/)
 
 ## Available Scripts
 
